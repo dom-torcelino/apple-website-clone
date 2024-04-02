@@ -11,7 +11,7 @@ import { View } from "@react-three/drei";
 import { animateWithGsapTimeline } from "../utils/animations";
 
 const Model = () => {
-  const [size, setSize] = useState("smaill");
+  const [size, setSize] = useState("small");
   const [model, setModel] = useState({
     title: "iPhone 15 Pro in Natural Titanium",
     color: ["#8F8A81", "#FFE7B9", "#6F6C64"],
@@ -64,7 +64,7 @@ const Model = () => {
               index={1}
               groupRef={small}
               gsapType="view1"
-              controlRef={cameraControlSmall}
+              controlRef={cameraControlLarge}
               setRotationState={setSmallRotation}
               item={model}
               size={size}

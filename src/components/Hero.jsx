@@ -17,7 +17,7 @@ const Hero = () => {
   };
 
   useEffect(() => {
-    window.addEventListener("resize", handleVideoSrcSet);
+    window.addEventListener("resize", handleVideoSrcSet, { passive: true });
 
     return () => {
       window.removeEventListener("resize", handleVideoSrcSet);
@@ -48,8 +48,13 @@ const Hero = () => {
         </div>
       </div>
 
-      <div id="cta" className="flex flex-col items-center opacity-0 translate-y-20">
-        <a href="#highlights" className="btn">Buy</a>
+      <div
+        id="cta"
+        className="flex flex-col items-center opacity-0 translate-y-20"
+      >
+        <a href="#highlights" className="btn">
+          Buy
+        </a>
         <p className="fonr-normal text-xl">From $199/month or $999</p>
       </div>
     </section>
