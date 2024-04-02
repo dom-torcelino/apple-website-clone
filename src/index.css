@@ -35,6 +35,11 @@ canvas {
   max-width: 1120px;
 }
 
+.outline-blue {
+  outline: 3px solid white; /* Adjust the outline style as needed */
+  padding: 2px;
+}
+
 @layer utilities {
   .flex-center {
     @apply flex items-center justify-center;

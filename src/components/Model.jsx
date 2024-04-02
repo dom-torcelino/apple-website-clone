@@ -17,6 +17,7 @@ const Model = () => {
     color: ["#8F8A81", "#FFE7B9", "#6F6C64"],
     img: yellowImg,
   });
+  const [selectedColorIndex, setSelectedColorIndex] = useState(0);
 
   // camera control for the model view
   const cameraControlSmall = useRef();
@@ -30,6 +31,12 @@ const Model = () => {
   const [smallRotation, setSmallRotation] = useState(0);
   const [largeRotation, setLargeRotation] = useState(0);
 
+  // event handlers
+  const handleColorSelect = (item) => {
+    setSelectedColorIndex(item);
+    setModel(item);
+  };
+
   const tl = gsap.timeline();
 
   useEffect(() => {
@@ -41,10 +48,10 @@ const Model = () => {
     }
 
     if (size === "small") {
-         animateWithGsapTimeline(tl, large, largeRotation, "#view2", "#view1", {
-           transform: "translateX(0)",
-           duration: 2,
-         });
+      animateWithGsapTimeline(tl, large, largeRotation, "#view2", "#view1", {
+        transform: "translateX(0)",
+        duration: 2,
+      });
     }
   }, [size]);
 
@@ -103,11 +110,13 @@ const Model = () => {
                 {models.map((item, i) => (
                   <li
                     key={i}
-                    className="w-6 h-6 rounded-full mx-2 cursor-pointer"
+                    className={`w-6 h-6 rounded-full mx-2 cursor-pointer ${
+                      item === selectedColorIndex ? "outline-blue" : ""
+                    }`}
                     style={{
                       backgroundColor: item.color[0],
                     }}
-                    onClick={() => setModel(item)}
+                    onClick={() => handleColorSelect(item)}
                   />
                 ))}
               </ul>
