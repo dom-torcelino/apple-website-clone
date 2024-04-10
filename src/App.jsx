@@ -15,7 +15,7 @@ const App = () => {
       <Highlights />
       <Model />
       <Features />
-      <HowItWorks />
+      {/* <HowItWorks /> */}
     </main>
   );
 };
